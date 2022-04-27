@@ -7,7 +7,7 @@ characters (no numbers and symbols) and it should end with capital A else return
 
 function capitalA(s) {
      
-    let numberPattern = s.match(/ \d+ /)
+        let numberPattern = s.match(/ \d+ /)
         let sympolsPattern = s.match(/ [`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~] /)
         let endattern = s.match(/[A]$/)
 
@@ -50,22 +50,19 @@ required extention are jpg, jpeg and png.
 */
 
 function imagesSearcher(text) {
-    let words = text.split(' ');
-    let obj = words
-    // console.log(obj);
-    let arr =[]
-    for (let i = 0; i < words.length;i++){
-        if (obj[i]=='cat.png' ||obj[i]=='dog.jpg' ||obj[i]=='cow.jpeg' ) {
-            // console.log('true');
-            arr.push(obj[i]);
-            
-        }
-        
-        // else{
-        //     console.log(arr);
-        // }
-    }
-    // Add your logic.
+    let arr = [];
+
+  let words = text.split(" ")
+
+  let regex = /.(jpg|png|jpeg)/
+    let pointer=0
+  while(pointer  < words.length  ){
+
+    if (regex.test(words[pointer])) {
+        arr.push(words[pointer]);
+      }
+      pointer++
+  }
     return arr
 }
 
